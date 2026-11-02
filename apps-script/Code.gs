@@ -42,7 +42,7 @@ function doPost(e) {
   lock.waitLock(10000);
   try {
     SpreadsheetApp.openById(SHEET_ID).getSheets()[0].appendRow([
-      new Date(),
+      Utilities.formatDate(new Date(), "Asia/Seoul", "yyyy-MM-dd HH:mm:ss"),
       data.grade,
       data.attend,
       attending ? asPlainText(child) : "",
