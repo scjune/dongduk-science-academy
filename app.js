@@ -140,14 +140,95 @@
     renderProgram(grade.talks);
   }
 
+  function rsvpKey(name) {
+    return "invite-rsvp-" + name;
+  }
+
+  // 저장소를 쓸 수 없는 브라우저에서도 양식은 그대로 동작해야 합니다.
+  function wasSubmitted(name) {
+    try { return localStorage.getItem(rsvpKey(name)) === "1"; } catch (err) { return false; }
+  }
+
+  function setSubmitted(name, value) {
+    try {
+      if (value) localStorage.setItem(rsvpKey(name), "1");
+      else localStorage.removeItem(rsvpKey(name));
+    } catch (err) { /* 저장하지 못해도 제출에는 영향이 없습니다. */ }
+  }
+
+  function renderRsvp(name) {
+    var form = document.getElementById("rsvp-form");
+    document.getElementById("rsvp").hidden = !window.INVITE_RSVP_URL;
+    form.reset();
+    document.getElementById("rsvp-details").hidden = true;
+    document.getElementById("rsvp-status").textContent = "";
+    form.hidden = wasSubmitted(name);
+    document.getElementById("rsvp-done").hidden = !form.hidden;
+  }
+
+  function submitRsvp(event) {
+    event.preventDefault();
+    var form = event.target;
+    var status = document.getElementById("rsvp-status");
+    var grade = HASH_TO_GRADE[location.hash];
+    var attend = form.elements.attend.value;
+    var child = form.elements.child.value.trim();
+    var count = form.elements.count.value;
+    if (!attend) { status.textContent = "참석 여부를 선택해 주세요."; return; }
+    if (attend === "참석" && !child) { status.textContent = "자녀 이름을 입력해 주세요."; return; }
+    if (attend === "참석" && !count) { status.textContent = "참석 인원을 선택해 주세요."; return; }
+
+    var button = form.querySelector(".rsvp-submit");
+    button.disabled = true;
+    status.textContent = "제출하는 중입니다…";
+    // text/plain으로 보내야 Apps Script가 처리하지 못하는 사전 요청이 생기지 않습니다.
+    fetch(window.INVITE_RSVP_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({
+        grade: grade,
+        attend: attend,
+        child: attend === "참석" ? child : "",
+        count: attend === "참석" ? Number(count) : 0,
+        website: form.elements.website.value
+      })
+    }).then(function (res) {
+      return res.json();
+    }).then(function (result) {
+      if (!result.ok) throw new Error(result.error || "rsvp failed");
+      setSubmitted(grade, true);
+      renderRsvp(grade);
+    }).catch(function (err) {
+      console.warn("참석 여부를 제출하지 못했습니다.", err);
+      status.textContent = "제출하지 못했습니다. 잠시 후 다시 시도해 주세요.";
+    }).then(function () {
+      button.disabled = false;
+    });
+  }
+
   function route() {
     var name = HASH_TO_GRADE[location.hash];
     document.getElementById("home").hidden = !!name;
     document.getElementById("detail").hidden = !name;
-    if (name) renderDetail(name);
-    else renderHome();
+    if (name) {
+      renderDetail(name);
+      renderRsvp(name);
+    } else renderHome();
     window.scrollTo(0, 0);
   }
+
+  document.getElementById("rsvp-form").addEventListener("submit", submitRsvp);
+  document.getElementById("rsvp-form").addEventListener("change", function (event) {
+    if (event.target.name === "attend") {
+      document.getElementById("rsvp-details").hidden = event.target.value !== "참석";
+      document.getElementById("rsvp-status").textContent = "";
+    }
+  });
+  document.getElementById("rsvp-again").addEventListener("click", function () {
+    var name = HASH_TO_GRADE[location.hash];
+    setSubmitted(name, false);
+    renderRsvp(name);
+  });
 
   window.addEventListener("hashchange", route);
   route();

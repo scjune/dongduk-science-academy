@@ -51,10 +51,9 @@ body {
 .title {
   margin: 0;
   color: var(--accent);
-  font-family: "Black Han Sans", "Noto Sans KR", sans-serif;
-  font-weight: 400;
-  letter-spacing: -.01em;
-  line-height: 1.16;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.28;
 }
 .title span { display: block; }
 
@@ -90,7 +89,7 @@ body {
   border-radius: 18px;
   background: var(--burgundy);
 }
-#home .title { color: #fff; font-size: clamp(32px, 10.5vw, 50px); }
+#home .title { color: #fff; font-size: clamp(29px, 8.6vw, 42px); }
 .intro {
   max-width: 21em;
   margin: 18px 0 0;
@@ -124,9 +123,8 @@ body {
 .grade-button:active { transform: scale(.97); }
 .grade-button:focus-visible, .back:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .grade-button b {
-  font-family: "Black Han Sans", "Noto Sans KR", sans-serif;
-  font-size: 28px;
-  font-weight: 400;
+  font-size: 25px;
+  font-weight: 700;
   line-height: 1.2;
 }
 .grade-button small { font-size: 13px; font-weight: 700; }
@@ -167,7 +165,7 @@ body {
   text-decoration: none;
 }
 #detail .eyebrow { font-size: 14px; margin-bottom: 6px; }
-.grade-title { font-size: 72px; outline: none; }
+.grade-title { font-size: 52px; outline: none; }
 
 .info {
   margin: 22px 0 0;
@@ -187,9 +185,8 @@ body {
 .program-title {
   margin: 34px 0 6px;
   color: var(--accent);
-  font-family: "Black Han Sans", "Noto Sans KR", sans-serif;
-  font-size: 26px;
-  font-weight: 400;
+  font-size: 23px;
+  font-weight: 700;
 }
 
 .part {
@@ -240,6 +237,67 @@ body {
 .note p { margin: 0; }
 .note .school { margin-top: 12px; }
 .note strong { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+/* 참석 확인 */
+.rsvp-question, .rsvp legend { margin: 0 0 8px; padding: 0; font-size: 15px; font-weight: 700; }
+.rsvp fieldset { margin: 0 0 18px; padding: 0; border: 0; min-width: 0; }
+.chips { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 8px; }
+.chip { position: relative; display: block; cursor: pointer; }
+.chip input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.chip span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+.chip input:checked + span { border-color: var(--accent); background: var(--accent); color: var(--bg); }
+.chip input:focus-visible + span { outline: 3px solid #fff; outline-offset: 2px; }
+.rsvp-label { display: block; margin: 0 0 18px; font-size: 15px; font-weight: 700; }
+.rsvp-label input {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 8px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+  color: #1c2b2b;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+}
+.rsvp-trap { position: absolute; left: -9999px; }
+.rsvp-privacy { margin: 0 0 12px; font-size: 13px; opacity: .85; }
+.rsvp-submit {
+  width: 100%;
+  min-height: 52px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--bg);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.rsvp-submit:disabled { opacity: .6; cursor: default; }
+.rsvp-status { margin: 10px 0 0; font-size: 14px; font-weight: 500; }
+.rsvp-status:empty { display: none; }
+.rsvp-done {
+  padding: 22px 16px;
+  border: 1px solid var(--accent);
+  border-radius: 14px;
+  text-align: center;
+}
+.rsvp-done p { margin: 0 0 10px; font-size: 16px; font-weight: 700; }
+.rsvp-again { padding: 6px; border: 0; background: none; color: var(--text); font: inherit; font-size: 14px; text-decoration: underline; cursor: pointer; }
 
 @media (min-width: 521px) {
   .note { border-radius: 14px 14px 0 0; }
