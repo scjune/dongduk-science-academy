@@ -128,7 +128,16 @@ body {
   line-height: 1.2;
 }
 .grade-button small { font-size: 13px; font-weight: 700; }
-#home .school { margin-top: 36px; }
+.parking {
+  width: 100%;
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 14px;
+}
+.parking strong { display: block; font-weight: 700; }
+#home .school { margin-top: 20px; }
 
 /* 학년 화면 */
 #detail {
