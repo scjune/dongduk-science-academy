@@ -94,7 +94,7 @@
   }
 
   function renderHome() {
-    var first = window.INVITE_FALLBACK.grades["1학년"];
+    var first = data["1학년"];
     setTheme(first.bg, first.accent);
     document.querySelectorAll(".grade-button").forEach(function (button) {
       var grade = data[button.dataset.grade];
