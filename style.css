@@ -115,13 +115,11 @@ body {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: 6.5px;
-  width: 8px;
-  height: 8px;
-  margin-left: -4px;
-  background: #fff;
-  box-shadow: 0 0 0 5px var(--burgundy);
-  transform: rotate(45deg);
+  bottom: 3.5px;
+  width: 28px;
+  height: 14px;
+  margin-left: -14px;
+  background: var(--burgundy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23fff' d='M6 0L12 6L6 12L0 6Z'/%3E%3C/svg%3E") center no-repeat;
 }
 #home .eyebrow { margin-bottom: 10px; font-size: 21px; font-weight: 700; }
 #home .title { color: #fff; font-size: clamp(29px, 8.6vw, 42px); }
