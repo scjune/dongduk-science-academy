@@ -244,6 +244,7 @@ body {
   text-align: center;
 }
 .note p { margin: 0; }
+.note-text { font-size: clamp(11.5px, 3.55vw, 14px); letter-spacing: -.02em; white-space: nowrap; }
 .note .school { margin-top: 12px; }
 .note strong { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
