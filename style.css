@@ -91,10 +91,10 @@ body {
 }
 .cotton-left { left: 6px; }
 .cotton-right { right: 6px; transform: scaleX(-1); }
-.cotton-line { fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cotton-line { fill: none; stroke: #fff; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
 .cotton-puff { fill: #fff; }
-.cotton-bract { fill: var(--burgundy); stroke: #fff; stroke-width: 1.5; stroke-linejoin: round; }
-.cotton-seam { fill: none; stroke: var(--burgundy); stroke-width: 1.2; stroke-linecap: round; }
+.cotton-bract { fill: var(--burgundy); stroke: #fff; stroke-width: 2; stroke-linejoin: round; }
+.cotton-seam { fill: none; stroke: var(--burgundy); stroke-width: 1.6; stroke-linecap: round; }
 .hero {
   position: relative;
   width: 100%;
