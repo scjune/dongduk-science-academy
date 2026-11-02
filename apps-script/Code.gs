@@ -1,5 +1,5 @@
 // 비공개 '참석 확인' 시트의 Apps Script에 붙여 넣어 웹 앱으로 배포합니다.
-// 초대장의 참석 여부 양식이 보낸 내용을 첫 번째 탭에 한 줄씩 추가합니다.
+// 초대장의 참석 여부 양식이 보낸 내용을 학년별 탭에 한 줄씩 추가합니다.
 
 // 웹 앱에서는 getActiveSpreadsheet()가 시트를 찾지 못하므로 ID로 엽니다.
 var SHEET_ID = "1Ya3ICccYZyGlkXEp3FMfmyZ6sk811wbuDvfWVFqFQZA";
@@ -15,6 +15,17 @@ function reply(result) {
 // 수식으로 해석될 수 있는 입력은 글자로 저장합니다.
 function asPlainText(value) {
   return /^[=+\-@]/.test(value) ? "'" + value : value;
+}
+
+// 탭 이름이 바뀌어도 응답을 잃지 않도록, 학년 탭이 없으면 새로 만듭니다.
+function gradeSheet(grade) {
+  var book = SpreadsheetApp.openById(SHEET_ID);
+  var sheet = book.getSheetByName(grade);
+  if (!sheet) {
+    sheet = book.insertSheet(grade);
+    sheet.appendRow(["제출 시각", "학년", "참석 여부", "자녀 이름", "참석 인원"]);
+  }
+  return sheet;
 }
 
 function doPost(e) {
@@ -41,7 +52,7 @@ function doPost(e) {
   var lock = LockService.getScriptLock();
   lock.waitLock(10000);
   try {
-    SpreadsheetApp.openById(SHEET_ID).getSheets()[0].appendRow([
+    gradeSheet(data.grade).appendRow([
       Utilities.formatDate(new Date(), "Asia/Seoul", "yyyy-MM-dd HH:mm:ss"),
       data.grade,
       data.attend,
