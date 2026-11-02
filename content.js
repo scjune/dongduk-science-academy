@@ -32,7 +32,7 @@ window.INVITE_FALLBACK = {
       date: "2026년 11월 10일 (화)",
       time: "16:30 ~ 18:00",
       place: "동진회관 2층",
-      bg: "#2c2552",
+      bg: "#024241",
       accent: "#f7c98b",
       talks: []
     }

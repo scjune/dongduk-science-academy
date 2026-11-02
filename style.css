@@ -75,6 +75,7 @@ body {
 
 /* 첫 화면 */
 #home {
+  --accent: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -135,9 +136,17 @@ body {
   padding: 18px 0 calc(40px + env(safe-area-inset-bottom));
 }
 #program { margin-bottom: 34px; }
+.logo { width: 112px; height: auto; margin-bottom: 18px; }
+.detail-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.logo-small { width: 52px; height: auto; }
 .back {
   align-self: flex-start;
-  margin: 0 0 30px -4px;
+  margin: 0 0 0 -4px;
   padding: 8px 4px;
   color: var(--text);
   font-size: 14px;

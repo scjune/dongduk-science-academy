@@ -100,8 +100,6 @@
       var grade = data[button.dataset.grade];
       // 첫 화면의 날짜는 "11월 11일 (수)"처럼 연도를 빼고 보여 줍니다.
       button.querySelector("[data-date]").textContent = grade.date.replace(/^\d{4}년\s*/, "");
-      button.style.background = grade.accent;
-      button.style.color = grade.bg;
     });
   }
 
