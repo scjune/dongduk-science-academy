@@ -1,0 +1,224 @@
+:root {
+  --bg: #024241;
+  --accent: #fbacc0;
+  --text: #ffffff;
+  --line: rgba(255, 255, 255, .42);
+  --deco: rgba(255, 255, 255, .09);
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html { background: var(--bg); -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  line-height: 1.55;
+  word-break: keep-all;
+  overflow-x: hidden;
+  transition: background-color .25s;
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.view { animation: rise .45s ease-out; }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+@media (prefers-reduced-motion: reduce) { .view { animation: none; } body { transition: none; } }
+
+.deco {
+  position: fixed;
+  fill: none;
+  stroke: var(--deco);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.deco-flask { width: 150px; left: -42px; top: 7vh; transform: rotate(-16deg); }
+.deco-dna { stroke: rgba(134, 112, 176, .4); width: 110px; right: -34px; top: 38vh; transform: rotate(14deg); }
+.deco-hex { width: 170px; left: -24px; bottom: 2vh; }
+
+.title {
+  margin: 0;
+  color: var(--accent);
+  font-family: "Black Han Sans", "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  letter-spacing: -.01em;
+  line-height: 1.16;
+}
+.title span { display: block; }
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+
+.school {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+/* 첫 화면 */
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 40px 0 calc(32px + env(safe-area-inset-bottom));
+  text-align: center;
+}
+#home .title { font-size: clamp(34px, 11vw, 52px); }
+.intro {
+  max-width: 21em;
+  margin: 24px 0 0;
+  font-size: 15px;
+}
+.choose {
+  margin: 40px 0 12px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+}
+.grade-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+.grade-button {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 92px;
+  justify-content: center;
+  padding: 14px 8px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  transition: transform .15s;
+}
+.grade-button:active { transform: scale(.97); }
+.grade-button:focus-visible, .back:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.grade-button b {
+  font-family: "Black Han Sans", "Noto Sans KR", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.grade-button small { font-size: 13px; font-weight: 700; }
+#home .school { margin-top: 36px; }
+
+/* 학년 화면 */
+#detail {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 18px 0 calc(40px + env(safe-area-inset-bottom));
+}
+#program { margin-bottom: 34px; }
+.back {
+  align-self: flex-start;
+  margin: 0 0 30px -4px;
+  padding: 8px 4px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+#detail .eyebrow { font-size: 14px; margin-bottom: 6px; }
+.grade-title { font-size: 72px; outline: none; }
+
+.info {
+  margin: 22px 0 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 8px 0;
+}
+.info div {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  padding: 7px 0;
+  align-items: baseline;
+}
+.info dt { color: var(--accent); font-size: 14px; font-weight: 700; }
+.info dd { margin: 0; font-size: 19px; font-weight: 700; line-height: 1.35; }
+
+.program-title {
+  margin: 34px 0 6px;
+  color: var(--accent);
+  font-family: "Black Han Sans", "Noto Sans KR", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.part {
+  display: inline-block;
+  margin: 18px 0 4px;
+  padding: 2px 12px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.talks { margin: 0; padding: 0; list-style: none; }
+.talk {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+}
+.talk-no {
+  color: var(--accent);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+.talk-name { margin: 0; font-size: 17px; font-weight: 700; line-height: 1.5; }
+.talk-topic { margin: 2px 0 0; font-size: 14.5px; line-height: 1.5; }
+
+.pending {
+  margin: 12px 0 0;
+  padding: 26px 16px;
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.note {
+  margin: auto -20px calc(-40px - env(safe-area-inset-bottom));
+  padding: 24px 20px calc(30px + env(safe-area-inset-bottom));
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 14px;
+  text-align: center;
+}
+.note p { margin: 0; }
+.note .school { margin-top: 12px; }
+.note strong { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+@media (min-width: 521px) {
+  .note { border-radius: 14px 14px 0 0; }
+}
