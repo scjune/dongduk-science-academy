@@ -1,6 +1,7 @@
 :root {
   --bg: #024241;
   --accent: #fbacc0;
+  --burgundy: #8b2942;
   --text: #ffffff;
   --line: rgba(255, 255, 255, .42);
   --deco: rgba(255, 255, 255, .09);
@@ -32,9 +33,7 @@ body {
   padding: 0 20px;
 }
 
-.view { animation: rise .45s ease-out; }
-@keyframes rise { from { opacity: 0; transform: translateY(10px); } }
-@media (prefers-reduced-motion: reduce) { .view { animation: none; } body { transition: none; } }
+@media (prefers-reduced-motion: reduce) { body { transition: none; } }
 
 .deco {
   position: fixed;
@@ -75,25 +74,31 @@ body {
 
 /* 첫 화면 */
 #home {
-  --accent: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 40px 0 calc(32px + env(safe-area-inset-bottom));
+  padding: 24px 0 calc(24px + env(safe-area-inset-bottom));
   text-align: center;
 }
-#home .title { font-size: clamp(34px, 11vw, 52px); }
+.hero {
+  width: 100%;
+  margin-top: 60px;
+  padding: 0 12px 28px;
+  border-radius: 18px;
+  background: var(--burgundy);
+}
+#home .title { color: #fff; font-size: clamp(32px, 10.5vw, 50px); }
 .intro {
   max-width: 21em;
-  margin: 24px 0 0;
+  margin: 18px 0 0;
   font-size: 15px;
 }
 .choose {
-  margin: 40px 0 12px;
-  color: var(--accent);
+  margin: 24px 0 12px;
+  color: #fff;
   font-size: 14px;
   font-weight: 700;
 }
@@ -136,7 +141,15 @@ body {
   padding: 18px 0 calc(40px + env(safe-area-inset-bottom));
 }
 #program { margin-bottom: 34px; }
-.logo { width: 112px; height: auto; margin-bottom: 18px; }
+.logo {
+  display: block;
+  width: 116px;
+  height: auto;
+  margin: -58px auto 14px;
+  padding: 7px;
+  border-radius: 50%;
+  background: var(--burgundy);
+}
 .detail-top {
   display: flex;
   align-items: center;
