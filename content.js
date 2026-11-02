@@ -2,7 +2,7 @@
 window.INVITE_SHEET_ID = "14lM-VAJaGQxx2yVUsN24H0MH-9aRV-yGePmfuf8Qx9k";
 
 // 참석 확인을 받는 Apps Script 웹 앱 주소. 비워 두면 참석 확인 양식을 숨깁니다.
-window.INVITE_RSVP_URL = "";
+window.INVITE_RSVP_URL = "https://script.google.com/macros/s/AKfycbzOiqdFPsIl1_tMPeQB7GTcrQZ2slXP8rqa6FuoWW0PG59xQXa1DF2uPLuF9vB97mOk/exec";
 
 // 시트를 불러오지 못할 때 보여 줄 기본 내용. 평소 내용 수정은 구글 시트에서 합니다.
 window.INVITE_FALLBACK = {

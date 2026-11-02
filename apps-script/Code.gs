@@ -1,6 +1,8 @@
 // 비공개 '참석 확인' 시트의 Apps Script에 붙여 넣어 웹 앱으로 배포합니다.
 // 초대장의 참석 여부 양식이 보낸 내용을 첫 번째 탭에 한 줄씩 추가합니다.
 
+// 웹 앱에서는 getActiveSpreadsheet()가 시트를 찾지 못하므로 ID로 엽니다.
+var SHEET_ID = "1Ya3ICccYZyGlkXEp3FMfmyZ6sk811wbuDvfWVFqFQZA";
 var GRADES = ["1학년", "2학년"];
 var MAX_COUNT = 4;
 var MAX_NAME_LENGTH = 20;
@@ -39,13 +41,16 @@ function doPost(e) {
   var lock = LockService.getScriptLock();
   lock.waitLock(10000);
   try {
-    SpreadsheetApp.getActiveSpreadsheet().getSheets()[0].appendRow([
+    SpreadsheetApp.openById(SHEET_ID).getSheets()[0].appendRow([
       new Date(),
       data.grade,
       data.attend,
       attending ? asPlainText(child) : "",
       attending ? count : ""
     ]);
+  } catch (err) {
+    console.error(err);
+    return reply({ ok: false, error: "save failed" });
   } finally {
     lock.releaseLock();
   }
