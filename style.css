@@ -84,13 +84,13 @@ body {
 }
 .cotton {
   position: absolute;
-  top: 8px;
-  width: min(27vw, 124px);
+  top: 18px;
+  width: min(24vw, 112px);
   height: auto;
   pointer-events: none;
 }
-.cotton-left { left: 6px; }
-.cotton-right { right: 6px; transform: scaleX(-1); }
+.cotton-left { left: 16px; }
+.cotton-right { right: 16px; transform: scaleX(-1); }
 .cotton-line { fill: none; stroke: #fff; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
 .cotton-puff { fill: #fff; }
 .cotton-bract { fill: var(--burgundy); stroke: #fff; stroke-width: 2; stroke-linejoin: round; }
@@ -99,9 +99,29 @@ body {
   position: relative;
   width: 100%;
   margin-top: 60px;
-  padding: 0 12px 28px;
+  padding: 0 14px 36px;
   border-radius: 18px;
   background: var(--burgundy);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 30px solid transparent;
+  border-image: url("hero-frame.svg") 30 stretch;
+  pointer-events: none;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6.5px;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  background: #fff;
+  box-shadow: 0 0 0 5px var(--burgundy);
+  transform: rotate(45deg);
 }
 #home .eyebrow { margin-bottom: 10px; font-size: 21px; font-weight: 700; }
 #home .title { color: #fff; font-size: clamp(29px, 8.6vw, 42px); }
