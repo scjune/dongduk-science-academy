@@ -44,7 +44,7 @@ function doPost(e) {
   var count = Number(data.count);
   if (GRADES.indexOf(data.grade) === -1) return reply({ ok: false, error: "invalid grade" });
   if (!attending && data.attend !== "불참") return reply({ ok: false, error: "invalid attend" });
-  if (attending && (!child || child.length > MAX_NAME_LENGTH)) return reply({ ok: false, error: "invalid child" });
+  if (!child || child.length > MAX_NAME_LENGTH) return reply({ ok: false, error: "invalid child" });
   if (attending && !(count >= 1 && count <= MAX_COUNT && Math.floor(count) === count)) {
     return reply({ ok: false, error: "invalid count" });
   }
@@ -55,7 +55,7 @@ function doPost(e) {
     gradeSheet(data.grade).appendRow([
       Utilities.formatDate(new Date(), "Asia/Seoul", "yyyy-MM-dd HH:mm:ss"),
       data.attend,
-      attending ? asPlainText(child) : "",
+      asPlainText(child),
       attending ? count : ""
     ]);
   } catch (err) {
