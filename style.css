@@ -121,15 +121,23 @@ body {
   margin-left: -14px;
   background: var(--burgundy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23fff' d='M6 0L12 6L6 12L0 6Z'/%3E%3C/svg%3E") center no-repeat;
 }
-#home .eyebrow { margin-bottom: 4px; font-size: 19px; font-weight: 700; }
-.wordmark {
-  margin: 0 0 11px;
-  padding-left: .3em;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: .3em;
+#home .eyebrow { margin-bottom: 10px; font-size: 16px; font-weight: 700; }
+#home .eyebrow::after {
+  content: "";
+  display: block;
+  width: 190px;
+  height: 10px;
+  margin: 8px auto 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='10'%3E%3Cpath stroke='%23fff' d='M0 5H85M105 5H190'/%3E%3Cpath fill='%23fff' d='M95 1L99 5L95 9L91 5Z'/%3E%3C/svg%3E") center no-repeat;
 }
-#home .title { margin-top: -.29em; color: #fff; font-size: clamp(26px, 7.6vw, 38px); }
+.wordmark, #home .title { font-size: clamp(16px, calc(8.5vw - 11px), 30px); }
+.wordmark {
+  margin: 0 0 2px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.28;
+}
+#home .title { color: #fff; white-space: nowrap; }
 .intro {
   max-width: 21em;
   margin: 18px 0 0;
