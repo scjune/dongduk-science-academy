@@ -121,7 +121,7 @@ body {
   margin-left: -14px;
   background: var(--burgundy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23fff' d='M6 0L12 6L6 12L0 6Z'/%3E%3C/svg%3E") center no-repeat;
 }
-#home .eyebrow { margin-bottom: 3px; font-size: 21px; font-weight: 700; }
+#home .eyebrow { margin-bottom: 4px; font-size: 19px; font-weight: 700; }
 .wordmark {
   margin: 0 0 11px;
   padding-left: .3em;
@@ -129,7 +129,7 @@ body {
   font-weight: 500;
   letter-spacing: .3em;
 }
-#home .title { margin-top: -.21em; color: #fff; font-size: clamp(26px, 7.6vw, 38px); }
+#home .title { margin-top: -.29em; color: #fff; font-size: clamp(26px, 7.6vw, 38px); }
 .intro {
   max-width: 21em;
   margin: 18px 0 0;
@@ -193,7 +193,7 @@ body {
   display: block;
   width: 116px;
   height: auto;
-  margin: -58px auto 14px;
+  margin: -58px auto 8px;
   padding: 7px;
   border-radius: 50%;
   background: var(--burgundy);
