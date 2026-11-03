@@ -193,6 +193,7 @@ body {
 .map-building { fill: #fff; stroke: #b9c9cc; stroke-width: 3; }
 .map-target-fill { fill: var(--burgundy); }
 .map-route { fill: none; stroke: var(--bg); stroke-width: 10; stroke-dasharray: 24 16; stroke-linejoin: round; }
+.map-route-end { fill: none; stroke: var(--bg); stroke-width: 10; }
 .map-route-head { fill: var(--bg); }
 .map-pointer { fill: none; stroke: var(--burgundy); stroke-width: 10; }
 .map-label { fill: #1c2b2b; font-size: 35px; font-weight: 700; text-anchor: middle; }
