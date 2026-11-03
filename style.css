@@ -177,6 +177,26 @@ body {
   font-size: 14px;
 }
 .parking strong { display: block; font-weight: 700; }
+.directions {
+  width: 100%;
+  margin: 12px 0 0;
+  padding: 10px 14px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 14px;
+}
+.directions-text { margin: 0 0 10px; }
+.directions-text strong { display: block; font-weight: 700; }
+.directions-map { display: block; width: 92%; height: auto; margin: 0 auto; border-radius: 8px; }
+.map-ground { fill: #e7eef0; }
+.map-field { fill: #cfe3d3; stroke: #fff; stroke-width: 4; }
+.map-building { fill: #fff; stroke: #b9c9cc; stroke-width: 3; }
+.map-target-fill { fill: var(--burgundy); }
+.map-route { fill: none; stroke: var(--bg); stroke-width: 10; stroke-dasharray: 24 16; stroke-linejoin: round; }
+.map-route-head { fill: var(--bg); }
+.map-pointer { fill: none; stroke: var(--burgundy); stroke-width: 10; }
+.map-label { fill: #1c2b2b; font-size: 35px; font-weight: 700; text-anchor: middle; }
+.map-target-label { fill: #fff; font-size: 36px; }
 #home .school { margin-top: 20px; }
 
 /* 학년 화면 */
