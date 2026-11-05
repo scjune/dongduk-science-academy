@@ -175,7 +175,7 @@
     var child = form.elements.child.value.trim();
     var count = form.elements.count.value;
     if (!attend) { status.textContent = "참석 여부를 선택해 주세요."; return; }
-    if (!child) { status.textContent = "자녀 이름을 입력해 주세요."; return; }
+    if (!child) { status.textContent = "학생 이름을 입력해 주세요."; return; }
     if (attend === "참석" && !count) { status.textContent = "참석 인원을 선택해 주세요."; return; }
 
     var button = form.querySelector(".rsvp-submit");
@@ -220,7 +220,7 @@
   document.getElementById("rsvp-form").addEventListener("submit", submitRsvp);
   document.getElementById("rsvp-form").addEventListener("change", function (event) {
     if (event.target.name === "attend") {
-      // 참석하지 못하는 경우에도 누구의 학부모인지 알 수 있도록 자녀 이름은 받습니다.
+      // 참석하지 못하는 경우에도 누구의 학부모인지 알 수 있도록 학생 이름은 받습니다.
       document.getElementById("rsvp-details").hidden = false;
       document.getElementById("rsvp-count").hidden = event.target.value !== "참석";
       document.getElementById("rsvp-status").textContent = "";

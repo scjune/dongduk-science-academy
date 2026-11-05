@@ -23,7 +23,7 @@ function gradeSheet(grade) {
   var sheet = book.getSheetByName(grade);
   if (!sheet) {
     sheet = book.insertSheet(grade);
-    sheet.appendRow(["제출 시각", "참석 여부", "자녀 이름", "참석 인원"]);
+    sheet.appendRow(["제출 시각", "참석 여부", "학생 이름", "참석 인원"]);
   }
   return sheet;
 }
